@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>APEX ROLEPLAY</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    color: white;
+    background: url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c') no-repeat center/cover;
+}
+
+/* DARK OVERLAY */
+body::before {
+    content: "";
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0,0,0,0.85), rgba(0,50,0,0.8));
+    z-index: -1;
+}
+
+/* NAVBAR */
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 40px;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(10px);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 45px;
+    height: 45px;
+    margin-right: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #00ff88;
+}
+
+.logo span {
+    color: #00ff88;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+nav a {
+    color: white;
+    margin-left: 20px;
+    text-decoration: none;
+}
+
+/* HERO */
+header {
+    text-align: center;
+    padding: 120px 20px;
+}
+
+h1 {
+    font-size: 60px;
+    color: #00ff88;
+    text-shadow: 0 0 20px #00ff88;
+}
+
+header p {
+    font-size: 18px;
+    color: #ccc;
+    letter-spacing: 2px;
+    margin-top: 10px;
+}
+
+/* IP BOX */
+.ip-box {
+    margin-top: 30px;
+    padding: 25px;
+    background: rgba(0,0,0,0.6);
+    border-radius: 18px;
+    backdrop-filter: blur(12px);
+    position: relative;
+}
+
+/* Animated border */
+.ip-box::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 18px;
+    padding: 2px;
+    background: linear-gradient(45deg, #00ff88, #00ccff, #00ff88);
+    background-size: 300%;
+    animation: glow 4s linear infinite;
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+}
+
+@keyframes glow {
+    0% { background-position: 0% }
+    100% { background-position: 300% }
+}
+
+.ip-content {
+    margin-top: 10px;
+    font-size: 20px;
+    color: #00ff88;
+    font-weight: bold;
+}
+
+/* BUTTONS */
+.action-buttons {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+button, .connect-btn, .discord-btn {
+    height: 40px;
+    padding: 0 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    letter-spacing: 1px;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+/* COPY */
+#copyBtn {
+    background: #00ff88;
+    font-family: monospace;
+}
+
+#copyBtn:hover {
+    box-shadow: 0 0 10px #00ff88;
+}
+
+/* CONNECT */
+.connect-btn {
+    background: #7a00ff;
+    color: white;
+    text-decoration: none;
+    text-shadow: 0 0 8px #fff;
+}
+
+.connect-btn:hover {
+    box-shadow: 0 0 10px #7a00ff;
+}
+
+/* DISCORD */
+.discord-btn {
+    background: #5865F2;
+    color: white;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.discord-btn img {
+    width: 18px;
+}
+
+.discord-btn:hover {
+    box-shadow: 0 0 10px #5865F2;
+}
+
+/* STATUS */
+.status-box {
+    margin-top: 20px;
+    padding: 12px 20px;
+    background: rgba(0,0,0,0.6);
+    border-radius: 10px;
+}
+
+.online {
+    color: #00ff88;
+}
+
+/* MOBILE FIX */
+@media(max-width:600px){
+
+    h1 {
+        font-size: 38px;
+    }
+
+    nav {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .ip-box {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .ip-content {
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    button, .connect-btn, .discord-btn {
+        width: 100%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">
+        <img src="logo.png">
+        <span>APEX RP</span>
+    </div>
+
+    <div>
+        <a href="#">Home</a>
+        <a href="#">Features</a>
+        <a href="#">Join</a>
+    </div>
+</nav>
+
+<header>
+    <h1>APEX ROLEPLAY</h1>
+    <p>Welcome to APEX ROLEPLAY</p>
+
+    <div class="ip-box">
+        <div class="ip-content" id="ip">148.113.25.124:7030</div>
+
+        <div class="action-buttons">
+            <button id="copyBtn" onclick="copyIP()">📋 COPY IP</button>
+
+            <a href="samp://148.113.25.124:7030" class="connect-btn">
+                🎮 CONNECT NOW
+            </a>
+
+            <a href="https://discord.gg/zRrC3X6y" class="discord-btn">
+                <img src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png">
+                JOIN DISCORD
+            </a>
+        </div>
+    </div>
+
+    <div class="status-box">
+        Status: <span class="online">ACTIVE</span>
+    </div>
+</header>
+
+<script>
+function copyIP(){
+    let ip = document.getElementById("ip").innerText;
+    navigator.clipboard.writeText(ip);
+    document.getElementById("copyBtn").innerText = "COPIED!";
+    setTimeout(()=>{document.getElementById("copyBtn").innerText="📋 COPY IP"},2000);
+}
+</script>
+
+</body>
+</html>
